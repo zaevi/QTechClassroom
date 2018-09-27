@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QTechClassroom", "QTechClassroom\QTechClassroom.csproj", "{1972DC7F-AB87-4746-93E6-2B24AC5970AE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1972DC7F-AB87-4746-93E6-2B24AC5970AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1972DC7F-AB87-4746-93E6-2B24AC5970AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1972DC7F-AB87-4746-93E6-2B24AC5970AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1972DC7F-AB87-4746-93E6-2B24AC5970AE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8CAECEC4-399C-4BCD-876B-41EDC1E3949A}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,66 @@
+﻿<Window x:Class="QTechClassroom.Main"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QTechClassroom"
+        mc:Ignorable="d"
+        Title="青理空教室 by zaevi" ResizeMode="NoResize" Height="450" Width="300" SizeToContent="Height"
+        Loaded="Window_Loaded">
+    <StackPanel Margin="10">
+        <Label x:Name="loginMsg" Content="登录状态: 未登录"/>
+        <Grid x:Name="loginGrid" Margin="0,10,0,0" Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition x:Name="loginRow"/>
+            </Grid.RowDefinitions>
+            <Label Content="帐号"/>
+            <TextBox x:Name="txtUser" Grid.Column="1" Margin="5"/>
+            <Label Content="密码" Grid.Row="1"/>
+            <PasswordBox x:Name="txtPass" Grid.Column="1" Grid.Row="1" Margin="5"/>
+            <Label Content="验证码" Grid.Row="2"/>
+            <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
+                <TextBox x:Name="txtCaptcha" Width="80" Margin="5"/>
+                <Image x:Name="imageCaptcha" Height="20" Width="60" ButtonBase.Click="imageCaptcha_Click"/>
+            </StackPanel>
+            <Button Grid.Column="2" Grid.Row="2" Margin="5,0" Content="登录" Click="Login_Click"/>
+        </Grid>
+        <DockPanel Margin="0,10">
+            <ToggleButton Content="︾" Padding="5,0" DockPanel.Dock="Right" Click="ToggleButton_Click"/>
+            <Label Content="快速查询: "/>
+            <ComboBox Margin="5,0" Text="" IsEditable="True">
+                <ComboBoxItem Content="上午空教室" Tag="1,2,3,4" Selected="ComboBoxItem_Selected"/>
+                <ComboBoxItem Content="下午空教室" Tag="5,6,7,8" Selected="ComboBoxItem_Selected"/>
+                <ComboBoxItem Content="晚上空教室" Tag="9,10,11" Selected="ComboBoxItem_Selected"/>
+                <ComboBoxItem Content="全天空教室" Tag="1,2,3,4,5,6,7,8" Selected="ComboBoxItem_Selected"/>
+            </ComboBox>
+        </DockPanel>
+        <Grid x:Name="searchGrid" Margin="0,0,0,10" Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Content="周次"/>
+            <TextBox x:Name="txtZC" TextChanged="TextBox_TextChanged" Grid.Column="1" Margin="5"/>
+            <Label Content="星期" Grid.Row="1"/>
+            <TextBox x:Name="txtXQ" TextChanged="TextBox_TextChanged" Grid.Column="1" Grid.Row="1" Margin="5"/>
+            <Label Content="节次" Grid.Row="2"/>
+            <TextBox x:Name="txtJC" TextChanged="TextBox_TextChanged" Grid.Column="1" Grid.Row="2" Margin="5"/>
+        </Grid>
+        <Button Content="查询" Width="70" Padding="5" Click="Search_Click"/>
+        <TextBox x:Name="msgBox" Margin="5" AcceptsReturn="True" MaxHeight="200" 
+                 VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+    </StackPanel>
+</Window>

@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
 using System.Text;
@@ -8,7 +9,7 @@ namespace QTechClassroom
 {
     public partial class Main : Window
     {
-        readonly string TempPath = Path.GetTempPath() + @"qtc9aff89.tmp";
+        readonly string TempPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"qtc9aff89.tmp";
 
         void SaveTemp()
         {

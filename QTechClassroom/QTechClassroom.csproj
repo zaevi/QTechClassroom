@@ -75,6 +75,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Captcha.cs" />
     <Compile Include="Main.IO.cs" />
     <Compile Include="URP.cs" />
     <Page Include="Main.xaml">

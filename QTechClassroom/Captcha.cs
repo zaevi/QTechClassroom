@@ -1,12 +1,25 @@
 ﻿using System;
 using System.Collections;
+using System.Drawing;
 using System.Linq;
 
 namespace QTechClassroom
 {
-    public class Captcha
+    public static class Captcha
     {
+        static Rectangle[] CropRectangles = {
 
+        };
+
+        public static string Read(Bitmap image)
+        {
+            throw new NotImplementedException();
+        }
+
+        private static BitArray CropAndToBitArray(this Bitmap image, Rectangle rect)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class CaptchaModel
@@ -79,5 +92,25 @@ namespace QTechClassroom
 
         private static BitArray Base64ToBitArray(string base64)
             => new BitArray(Convert.FromBase64String(base64));
+
+        private static double GetDistanceRatio(BitArray model, BitArray instance)
+        {
+
+            var matched = 0;
+            var length = 0;
+            for (var i = 0; i < model.Length; i++)
+                if (model[i])
+                {
+                    length++;
+                    if (instance[i]) matched++;
+                }
+            return (double)matched / length;
+        }
+
+        public static char Read(BitArray instance)
+        {
+            var ratios = Models.Select(m => GetDistanceRatio(m, instance)).ToList();
+            return Labels[ratios.IndexOf(ratios.Max())];
+        }
     }
 }

@@ -1,24 +1,54 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Windows.Media.Imaging;
 
 namespace QTechClassroom
 {
     public static class Captcha
     {
         static Rectangle[] CropRectangles = {
-
+            new Rectangle(6, 3, 13, 17),
+            new Rectangle(19, 3, 13, 17),
+            new Rectangle(32, 3, 13, 17),
+            new Rectangle(45, 3, 13, 17)
         };
+
+        public static string Read(BitmapImage bitmapImage)
+        {
+            using (MemoryStream outStream = new MemoryStream())
+            {
+                var enc = new BmpBitmapEncoder();
+                enc.Frames.Add(BitmapFrame.Create(bitmapImage));
+                enc.Save(outStream);
+                var bitmap = new Bitmap(outStream);
+                return Read(new Bitmap(bitmap));
+            }
+        }
 
         public static string Read(Bitmap image)
         {
-            throw new NotImplementedException();
+            var set = new HashSet<int>();
+            for (int y = 0; y < 20; y++)
+                for (int x = 0; x < 60; x++)
+                    set.Add((int)(image.GetPixel(x, y).GetBrightness() * 255));
+            var level = set.Sum() / (float)set.Count / 255;
+            var chars = CropRectangles.Select(c => CaptchaModel.Read(image.CropAndToBitArray(c, level))).ToArray();
+            return new string(chars);
         }
 
-        private static BitArray CropAndToBitArray(this Bitmap image, Rectangle rect)
+        private static BitArray CropAndToBitArray(this Bitmap image, Rectangle rect, float level)
         {
-            throw new NotImplementedException();
+            var bitArray = new BitArray(rect.Height * rect.Width + 7);
+            var i = 0;
+            foreach (var y in Enumerable.Range(rect.Y, rect.Height))
+                foreach (var x in Enumerable.Range(rect.X, rect.Width))
+                    bitArray.Set(i++, image.GetPixel(x, y).GetBrightness() < level);
+
+            return bitArray;
         }
     }
 

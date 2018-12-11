@@ -35,15 +35,11 @@ namespace QTechClassroom
         {
             var response = await Web.GetAsync("/");
             var stream = await Web.GetStreamAsync("/validateCodeAction.do");
-
-            using (MemoryStream memoryStream = new MemoryStream())
-            {
-                var imageSource = new BitmapImage();
-                imageSource.BeginInit();
-                imageSource.StreamSource = stream;
-                imageSource.EndInit();
-                return imageSource;
-            }
+            var imageSource = new BitmapImage();
+            imageSource.BeginInit();
+            imageSource.StreamSource = stream;
+            imageSource.EndInit();
+            return imageSource;
         }
 
         public static async Task<bool> Login(string user, string pass, string captcha)

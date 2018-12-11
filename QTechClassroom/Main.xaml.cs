@@ -97,7 +97,7 @@ namespace QTechClassroom
 
         public void SearchHelper(string jc)
         {
-            var week = (DateTime.Now - new DateTime(2018, 7, 27)).Days / 7 + 1;
+            var week = (DateTime.Now - new DateTime(2018, 8, 27)).Days / 7 + 1;
             var day = (int)DateTime.Now.DayOfWeek;
             txtZC.Text = week.ToString();
             txtXQ.Text = day.ToString();

@@ -44,6 +44,7 @@ namespace QTechClassroom
         {
             var captcha = await URP.GetCaptcha();
             imageCaptcha.Source = captcha;
+            captcha.DownloadCompleted += (s,e)=> txtCaptcha.Text = Captcha.Read(captcha);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -71,6 +72,7 @@ namespace QTechClassroom
 
         private async void TryLogin()
         {
+            loginMsg.Content = "尝试登录...";
             var success = await URP.Login(txtUser.Text, txtPass.Password, txtCaptcha.Text);
             if(success)
             {

@@ -1,7 +1,7 @@
 # QTechClassroom
 用于查询青岛理工大学的空教室, 目前只支持查询嘉陵江路校区-主教学楼.
 
-目前版本: 0.5.* - [更新日志](ChangeLog.md)
+目前版本: 0.6.* - [更新日志](ChangeLog.md)
 
 [预览](https://user-images.githubusercontent.com/12966814/46129436-45035100-c269-11e8-9cc2-5db7a4f61727.png)
 

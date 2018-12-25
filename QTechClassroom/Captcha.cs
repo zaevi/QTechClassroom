@@ -55,9 +55,9 @@ namespace QTechClassroom
     public class CaptchaModel
     {
         #region [Fields] ...
-        static readonly string labels = "0123456789ABCDEFHJKLMNPQRSTUVWXYZabdefghjmnqrtwxy";
+        static readonly string labels = "0123456789ABCDEFHJKLMNRPQSTUVWXYZabdefghjmnqrtwxy";
         static readonly string[] modelsBase64 = {
-            "cIA/MAaDYTAMhsEwGAbDYDAG/gAHAAAAAAAAAA==",
+            "cIA/MAaDYTAMhsEwGAbDYDAG/gAHAAAAAAAAAA==", 
             "cIAP8AEwAAbAABgAA2AADIAB/sE/AAAAAAAAAA==",
             "fMAfCAbAABiAARiAARiAARgA/+AfAAAAAAAAAA==",
             "fMA/CAbAAAz4AD8ADoABMAgHf8AHAAAAAAAAAA==",
@@ -79,9 +79,9 @@ namespace QTechClassroom
             "BsAAGAADYAAMgAEwAAbAABgA/+AfAAAAAAAAAA==",
             "DtiDe3APbmdtrI01m2bTbBpH42gAAQAAAAAAAA==",
             "BsbBeBgPY2NsjJkxNsbG8Bgeg2NgAAAAAAAAAA==",
-            "fsAfGAfDYBiMgz/wAQbAABgAA2AAAAAAAAAAAA==",
-            "8AF/cBwGZ8AMmAEzYAaMwXEc/AEfAA6AB0AAAA==",
-            "fsAfGAfDYBiMgz/wA2bAGBgGg2FgAAAAAAAAAA==",
+            "fsAfGAfDYBiMgz/wA2bAGBgGg2FgAAAAAAAAAA==", // R
+            "fsAfGAfDYBiMgz/wAQbAABgAA2AAAAAAAAAAAA==", // P
+            "8AF/cBwGZ8AMmAEzYAaMwXEc/AEfAA6AB0AAAA==", // Q
             "PMAPGAEDYAA4AB4AB8AAGAgDP8ADAAAAAAAAAA==",
             "/+N/wAAYAANgAAyAATAABsAAGAADAAAAAAAAAA==",
             "BsNgGAyDYTAMhsEwGAbDYDgO/oAPAAAAAAAAAA==",
